@@ -1,0 +1,293 @@
+<div id="cc">
+
+    <h3 id="x"> {{ username }}'s Drive </h3>
+<img class="fit-picture"
+     src="../../assets/template/img/cloud_img.png" width="100" height="100"
+     alt="cloud">
+
+</div>
+
+<div class="row">
+    <div class="col-lg-5 col-md-2 ">
+      <div id="square7" class="square square-7"></div>
+      <div id="square8" class="square square-8"></div>
+
+      <div class="card card-register"  id="b">
+        <div class="card-header">
+          <img class="card-img" src="assets/template/img/square1.png" alt="Card image">
+          <h4 class="card-title">&nbsp;&nbsp; your folders</h4>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button data-toggle="modal" data-target="#staticBackdrop" class="btn" (click)="add_folder()"><i class="fa fa-plus"></i>&nbsp; &nbsp; Add Folder </button>
+        </div>
+        <br>
+        <div class="card-body">
+          
+            <!-- list of folder of user x -->
+            <!--
+            <button class="btn"><i class="fa fa-folder"></i>&nbsp; &nbsp;   Folder 1 </button>
+            <button class="btn"><i class="fa fa-folder"></i>&nbsp; &nbsp;   Folder 2 </button>
+            <button class="btn"><i class="fa fa-folder"></i>&nbsp; &nbsp;   Folder 3 </button>
+
+            -->
+
+            <!-- debut tree view -->
+      
+            <div class="tree ">
+              <ul>
+              
+              <li><span (click)="click_root_folder()"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{username}}" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i>
+              <i class="expanded"><i class="far fa-folder-open"></i></i> {{ username }} </a></span>
+              <div id="{{username}}" class="collapse show">
+
+
+              <ul > <!-- all the tree -->
+
+               <li *ngFor="let sub_folder of subfolder_of_folders"><span (click)="subfolder_click(sub_folder)"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{sub_folder}}" aria-expanded="false" aria-controls="page1"><i class="collapsed"><i class="fas fa-folder"></i></i>
+              <i class="expanded"><i class="far fa-folder-open"></i></i> {{ sub_folder }} </a></span>
+                
+              
+              <ul>
+                <div id="{{sub_folder}}" class="collapse">
+                  
+                 
+                    <li *ngFor="let sub of sub_of_subfolders"><span><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{sub}}" aria-expanded="false" aria-controls="Page2"><i class="collapsed"><i class="fas fa-folder"></i></i>
+                      <i class="expanded"><i class="far fa-folder-open"></i></i> {{ sub }} </a></span>
+                    
+                      
+                    
+                     </li> 
+                 
+
+
+                  </div>
+                 </ul>
+
+
+               </li>
+
+              </ul>
+
+
+
+              
+
+
+
+
+
+              </div>
+              </li>
+              </ul>
+              
+              </div>
+              
+
+
+              
+
+
+            <!-- end tree view -->
+
+        </div>
+        
+      </div>
+    
+  </div>
+
+  <div class="col-lg-5 col-md-2" id="c">
+    <div id="square7" class="square square-7"></div>
+    <div id="square8" class="square square-8"></div>
+
+    <div class="card card-register"  id="c">
+      <div class="card-header">
+        <img class="card-img" src="assets/template/img/square1.png" alt="Card image">
+        <h4 class="card-title"> &nbsp; &nbsp; your files</h4>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn"  data-toggle="modal" data-target="#staticBackdrop_file" ><i class="fa fa-plus"></i>&nbsp; &nbsp; Add File </button>
+      </div>
+      <br>
+      <div class="card-body">
+        
+          <!-- list of folder of user x -->
+          <div class="container">
+            
+            <div *ngFor="let file of files" class="row">
+              <div class="col">
+                <button class="btn" (click)="file_click(file)"><i class="fa fa-file"></i>&nbsp; {{file}} </button>
+                &nbsp;  <button id="btn_perso" (click)="delete_file(file)" ><i id="trash_icon" class="fa fa-trash" aria-hidden="true"></i> </button>
+              </div> 
+              
+            </div>
+
+
+
+
+          </div>
+         
+          
+    
+      </div>
+      
+    </div>
+ 
+<!-- test subfolders list -->
+
+
+
+</div>
+</div>
+
+
+
+
+
+<!-- pop up -->
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-body">
+            <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+                
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form #f="ngForm" id="login-form" class="form" method="post">
+                                <h3 class="text-center text-info">Add Folder</h3>
+                                <br>
+                                <div class="form-group">
+                                    <label for="nom" class="text-info">Folder Name :</label><br>
+                                    <input #nom="ngModel" ngModel required type="text" name="name" id="name1" class="form-control" placeholder="enter your folder name ...">
+                                </div>
+      
+
+
+                                <div class="form-group">
+                                 
+                                 <!-- list of folders and subfolder of username -->
+
+
+                                 <span (click)="root_fold_click(username)"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{username}}" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i>
+                                  <i class="expanded"><i class="far fa-folder-open" ></i></i> {{ username }} </a></span>
+                                  <span id="{{username}}"> </span>
+                                  <br>
+
+                                  <span *ngFor="let fold of folds" (click)="root_fold_click(fold)"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{fold}}" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i>
+                                    <i class="expanded"><i class="far fa-folder-open"></i></i> {{ fold }} </a>
+                                    <span id ="{{fold}}"></span> 
+                                    <br>
+                                  </span>
+
+                                  <span *ngFor="let subfold of folds_and_subfolds" (click)="root_fold_click(subfold)"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{subfold}}" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i>
+                                    <i class="expanded"><i class="far fa-folder-open"></i></i> {{ subfold }} </a>
+                                    <span id ="{{subfold}}"></span> 
+                                    <br>
+                                  </span>
+                                    
+  
+                                  
+                              </div>
+      
+      
+      
+                                <div class="form-group">
+                                    <input (click)="add_folder_in_pop_up(f)" data-dismiss="modal"  id="btn_sub" type="submit" name="submit" class="btn btn-info btn-md" value="add folder"> &nbsp;   &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  
+                                  
+                                </div>
+        
+                                
+                            </form>
+                           
+        
+                            <!-- end add meeting form -->
+      
+                        </div>
+                    </div>
+                </div>
+            
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+<!-- pop up start add file -->  
+
+
+
+<div class="modal fade" id="staticBackdrop_file" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-body">
+            <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+                
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form #f="ngForm" id="login-form" class="form" method="post">
+                                <h3 class="text-center text-info">Add File</h3>
+                                <br>
+                                
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                      <i class="tim-icons icon-paper"></i>
+                                    </div>
+                                  </div>
+                                  <input name="image" type="file"  (change)="selectImage($event.target.files)"  class="form-control" placeholder="Photo" ngModel required>
+                                </div>
+      
+
+
+                                <div class="form-group">
+                                 
+                                 <!-- list of folders and subfolder of username -->
+
+
+                                 <span (click)="root_fold_click(username)"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{username}}" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i>
+                                  <i class="expanded"><i class="far fa-folder-open" ></i></i> {{ username }} </a></span>
+                                  <span id="{{username}}"> </span>
+                                  <br>
+
+                                  <span *ngFor="let fold of folds" (click)="root_fold_click(fold)"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{fold}}" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i>
+                                    <i class="expanded"><i class="far fa-folder-open"></i></i> {{ fold }} </a>
+                                    <span id ="{{fold}}"></span> 
+                                    <br>
+                                  </span>
+
+                                  <span *ngFor="let subfold of folds_and_subfolds" (click)="root_fold_click(subfold)"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#{{subfold}}" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i>
+                                    <i class="expanded"><i class="far fa-folder-open"></i></i> {{ subfold }} </a>
+                                    <span id ="{{subfold}}"></span> 
+                                    <br>
+                                  </span>
+                                    
+  
+                                  
+                              </div>
+      
+      
+      
+                                <div class="form-group">
+                                    <input (click)="add_file_in_pop_up(f)" data-dismiss="modal"  id="btn_sub" type="submit" name="submit" class="btn btn-info btn-md" value="add file"> &nbsp;   &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  
+                                  
+                                </div>
+        
+                                
+                            </form>
+                           
+        
+                            <!-- end add meeting form -->
+      
+                        </div>
+                    </div>
+                </div>
+            
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+
+

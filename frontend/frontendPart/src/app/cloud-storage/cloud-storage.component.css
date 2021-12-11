@@ -1,0 +1,117 @@
+#b{
+    margin-left: -100px;
+    /* height: 450px; */
+    height: auto;
+   
+
+}
+
+#c{
+    margin-left: -80px;
+    width: 800px;
+    /* height: 450px; */
+    height: auto;
+    
+}
+
+#x{
+    font-family: cursive;
+    font-style: oblique;
+    font-optical-sizing: none;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    display:inline-block;margin-right:10px;
+}
+
+
+
+.fit-picture{
+display:inline-block;
+}
+
+#cc{
+    margin-top: -50px;
+}
+
+
+/*  part of treeview */ 
+
+.tree li {
+    list-style-type:none;
+    margin:0;
+    padding:10px 5px 0 5px;
+    position:relative
+}
+.tree li::before, 
+.tree li::after {
+    content:'';
+    left:-20px;
+    position:absolute;
+    right:auto
+}
+.tree li::before {
+    border-left:2px solid #000;
+    bottom:50px;
+    height:100%;
+    top:0;
+    width:1px
+}
+.tree li::after {
+    border-top:2px solid #000;
+    height:20px;
+    top:25px;
+    width:25px
+}
+.tree li span {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border:2px solid #000;
+    border-radius:3px;
+    display:inline-block;
+    padding:3px 8px;
+    text-decoration:none;
+    cursor:pointer;
+}
+.tree>ul>li::before,
+.tree>ul>li::after {
+    border:0
+}
+.tree li:last-child::before {
+    height:27px
+}
+.tree li span:hover {
+    background: hotpink;
+    border:2px solid #94a0b4;
+    }
+
+[aria-expanded="false"] > .expanded,
+[aria-expanded="true"] > .collapsed {
+  display: none;
+}
+    
+
+#name1{
+    color: black;
+    
+}
+
+#btn_sub{
+    margin-left: 82px;
+}
+    
+
+#btn_perso{
+
+    color: #DC143C;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+
+#trash_icon{
+    font-size: 20px;
+}

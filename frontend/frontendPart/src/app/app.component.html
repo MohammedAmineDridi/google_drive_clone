@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+      
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        
+        <ul class="navbar-nav">
+         
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/storage" > My Drive </a>
+          </li>
+
+          <li class="nav-item">
+            <img class="fit-picture"
+     src="../assets/template/img/{{username}}.jpg" width="50" height="30"
+            
+      style="display: {{visible}};" >
+
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header">
+      <div class="page-header-image"></div>
+      <div class="content">
+        <div class="container" id="b">
+         
+            <router-outlet></router-outlet>
+
+          <div class="register-bg"></div>
+          <div id="square1" class="square square-1"></div>
+          <div id="square2" class="square square-2"></div>
+          <div id="square3" class="square square-3"></div>
+          <div id="square4" class="square square-4"></div>
+          <div id="square5" class="square square-5"></div>
+          <div id="square6" class="square square-6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
